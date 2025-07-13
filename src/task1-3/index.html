@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+  <link href="../output.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
   <title>Task DumbWays</title>
+  <style>
+    body {
+      background-color: white;
+    }
+  </style>
 </head>
 <body>
-  <!-- navbar -->
-  <div class="navbar bg-gray-200 w-full h-[55px] mb-[40px] shadow-xl/20">
-    <div class="flex items-center justify-between">
-      <div class="flex">
-        <img src="img/dumbways.png" alt="" class="w-[50px] h-[35px] mr-[40px] ml-[50px]">
-        <div class="font-bold mr-[40px]">Home</div>
-        <div class="">My project</div>
-      </div>
-      <div>
-        <button class="bg-black text-white text-center rounded-md w-[110px] h-[30px] mb-[20px] mt-[px] mt-[10px] mr-[50px]">Contact Me</button>
-      </div>
-    </div>
+  <!-- navbar --> 
+  <div class="bg-gray-100 w-full h-[55px] flex items-center shadow-xl/20 justify-between mb-[30px]">
+    <ul class="flex">
+      <img src="/src/assets/images/dumbways.png" alt="" class="w-[50px] h-[35px] mr-[40px] ml-[50px]">
+      <div class="font-bold mr-[40px] mt-[5px] text-black">Home</div>
+      <div class="mt-[5px] text-black">My project</div>
+    </ul>
+    <button class="btn btn-md bg-black text-white text-center rounded-md w-[110px] h-[30px] mb-[20px] mt-[20px] mr-[50px]">Contact Me</button>
   </div>
   <!-- content -->
   <!-- day 1 -->
@@ -30,16 +31,16 @@
     <button class="bg-black text-white text-center rounded-md w-[110px] h-[30px] mb-[20px] text-lg">contact</button>
     <div class="flex items-center mb-[20px]">
       <button class="mr-[10px] text-lg">download CV</button>
-      <button class="fa-solid fa-download"></button>
+      <a class="fa-solid fa-download"></a>
     </div>
-    <div class="mb-[30px] text-center flex justify-center space-x-8">
+    <div class="mb-[50px] text-center flex justify-center space-x-8">
       <span class="fa-brands fa-linkedin text-2xl"></span>
       <span class="fa-brands fa-square-instagram text-2xl"></span>
       <span class="fa-brands fa-square-facebook text-2xl"></span>
       <span class="fa-brands fa-square-twitter text-2xl"></span>
     </div>
-    <div class="shadow-xl/20 w-[323px] h-[450px] bg-white rounded-md content-center ml-[280px]">
-      <img class="w-[323px] h-[350px] rounded-t-md justify-self-center mb-[20px] mt-[-30px]" src="./img/siluet.jpg" alt="" />
+    <div class="shadow-xl/20 w-[323px] h-[450px] bg-white rounded-md content-center ml-[195px]">
+      <img class="w-[323px] h-[350px] rounded-t-md justify-self-center mb-[20px] mt-[-30px]" src="/src/assets/images/siluet.jpg" alt="" />
       <div class="card-body">
         <div class="text-center font-bold text-2xl">Adika Zikri Ramadhan</div>
         <div class="text-center text-md">Fullstack Developer</div>
@@ -66,8 +67,8 @@
         <a class="fa-brands fa-square-twitter text-2xl cursor-pointer"></a>
       </div>
     </section>
-    <section class="shadow-xl/20 w-[500px] h-[430px] rounded-md content-center mt-[30px] ml-[100px] bg-white">
-      <img class="w-[500px] h-[320px] mt-[-30px] rounded-t-md justify-self-center mb-[25px]" src="/src/img/siluet.jpg" alt="" />
+    <section class="shadow-xl/20 w-[500px] h-[430px] rounded-md content-center mt-[50px] ml-[50px] bg-white">
+      <img class="w-[500px] h-[320px] mt-[-30px] rounded-t-md justify-self-center mb-[25px]" src="/src/assets/images/siluet.jpg" alt="" />
         <div class="card-body">
           <div class="text-center font-bold text-2xl">Adika Zikri Ramadhan</div>
           <div class="text-center text-md">Fullstack Developer</div>
@@ -87,9 +88,9 @@
         <input type="email" id="email" name="email" class="bg-white w-full h-[40px] rounded-md shadow-xl mb-[15px] p-2" required>
         <label for="Phone" class="text-lg font-semibold">Phone Number:</label><br>
         <input type="tel" id="Phone" name="Phone" class="bg-white w-full h-[40px] rounded-md shadow-xl mb-[15px] p-2" required>
-        <label for="subject" class="text-lg font-semibold">Subject:</label><br>
+        <label for="select" class="text-lg font-semibold">Subject:</label><br>
         <div class="relative w-full">
-          <input type="text" id="subject" name="subject" class="bg-white w-full h-[40px] rounded-md shadow-xl mb-[15px] p-2" required>
+          <input type="text" id="select" name="select" class="bg-white w-full h-[40px] rounded-md shadow-xl mb-[15px] p-2" required>
           <i class="fa-solid fa-chevron-down absolute right-3 top-1/4 text-gray-500 pointer-events-none"></i>
         </div>
         <label for="message" class="text-lg font-semibold">Your Message:</label><br>
