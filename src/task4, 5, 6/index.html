@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 4</title>
-    <link href="../output.css" rel="stylesheet">
+    <link href="/src/assets/css/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
     <script src="/src/assets/js/jquery-3.3.1.min.js" type="text/javascript" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -309,8 +309,8 @@
         let icon4 = $('#icon4').prop('checked');
         let description = $('#description').val();
         let file = $('#uploadImage')[0].files[0];
-        let id = currentId++
-        let cardId = card++
+        let id = currentId++;
+        let cardId = card++;
         
         if (!file) return alert("Image input cannot be empty!");
 

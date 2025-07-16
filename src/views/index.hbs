@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dumbways</title>
+    <link href="../assets/css/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <script src="../assets/js/jquery-3.3.1.min.js" type="text/javascript" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+  <!-- navbar -->
+  <nav class="bg-gray-100 w-full h-auto px-4 py-3">
+    <div class="max-w-8xl mx-auto flex flex-wrap items-center justify-between">
+      <div class="flex items-center space-x-6">
+        <img src="../assets/images/dumbways.png" alt="logo" class="w-[50px] h-[35px]">
+        <ul class="flex space-x-6 text-black text-sm sm:text-base font-medium">
+          <li><a href="#" class="font-bold hover:text-gray-600">Home</a></li>
+          <li><a href="#" class="hover:text-gray-600">My Project</a></li>
+        </ul>
+      </div>
+      <div class="mt-4 sm:mt-0">
+        <button id="btnContact" class="btn btn-md bg-black text-white rounded-md px-4 py-1 text-sm sm:text-base hover:bg-gray-800">
+          Contact Me
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- content -->
+  <div class="bg-gray-200 w-screen">
+    <div class="max-w-[800px] mx-auto px-4 py-10">
+      <div class="text-center mb-12">
+        <h1 class="uppercase font-bold text-4xl">add my project</h1>
+      </div>
+      <form action="" method="" enctype="multipart/form-data">
+        <label for="name" class="text-xl font-semibold block">Project Name:</label>
+        <input type="text" id="name" class="bg-white w-full h-[40px] rounded-xs shadow-xl mb-4 p-2">
+        <div class="flex">
+          <label id="startDate" for="sDate" class="text-xl font-semibold mr-[108px] md:mr-[280px] lg:mr-[295px]">Start Date:</label>
+          <label id="endDate" for="eDate" class="text-xl font-semibold">End Date:</label>
+        </div>
+        <div class="flex gap-4">
+          <input type="date" id="sDate" class="bg-white w-full h-[40px] rounded-xs shadow-xl mb-[15px] p-2">
+          <input type="date" id="eDate" class="bg-white w-full h-[40px] rounded-xs shadow-xl mb-[15px] p-2">
+        </div>
+        <label for="description" class="text-xl font-semibold mb-2">Description:</label>
+        <textarea type="text" id="description" class="bg-white w-full h-[150px] rounded-md shadow-xl mb-[15px] p-2"></textarea>
+        <label class="text-xl font-semibold">Technologies:</label>
+        <div class="flex mb-[20px]">
+          <div class="mr-[150px]">
+            <div class="mb-[10px] flex items-center">
+              <input type="checkbox" id="icon1" class="checkbox bg-white rounded-xs mr-[10px]" value="" />
+              <label class="text-lg font-semibold">Node Js</label>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="icon2" class="checkbox bg-white rounded-xs mr-[10px]" value="" />
+              <label class="text-lg font-semibold">React Js</label>
+            </div>
+          </div>
+          <div>
+            <div class="mb-[10px] flex items-center">
+              <input type="checkbox" id="icon3" class="checkbox bg-white rounded-xs mr-[10px]" value="" />
+              <label class="text-lg font-semibold">Next Js</label>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="icon4" class="checkbox bg-white rounded-xs mr-[10px]" value="" />
+              <label class="text-lg font-semibold">TypeScript</label>
+            </div>
+          </div>
+        </div>
+        <label class="text-xl font-semibold">Upload Image:</label>
+        <input type="file" id="uploadImage" class="file-input w-full h-[40px] mb-[30px] shadow-xl"/>
+        <div class="justify-end flex items-center">
+          <button type="submit" id="btnSubmit" class="btn btn-xl bg-black text-white hover:bg-gray-800 text-center rounded-md w-[110px] h-[30px] text-lg">submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="bg-base-200 w-full px-4 py-10 sm:px-8 lg:px-20">
+    <div class="max-w-4xl mx-auto text-center mb-10">
+      <h1 class="uppercase font-bold text-4xl">my project</h1>
+    </div>
+    <div id="bodyCard" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    </div>
+  </div>
+
+  <!-- modal -->
+  <input type="checkbox" id="my_detail_1" class="modal-toggle" />
+  <div class="modal" role="dialog">
+    <div class="modal-box">
+      <div id="detCard"></div>
+      <div class="justify-end flex items-center">
+        <label for="my_detail_1" class="btn btn-md bg-black text-white rounded-md px-4 py-1 text-sm sm:text-base hover:bg-gray-800">Close</label>
+      </div>
+    </div>
+  </div>
+
+  <input type="checkbox" id="my_edit_1" class="modal-toggle" />
+  <div class="modal" role="dialog">
+    <div class="modal-box">
+      <div class="text-center mb-4">
+        <h1 class="capitalize font-bold text-3xl">edit project</h1>
+      </div>
+      <form action="" method="" enctype="multipart/form-data">
+        <label for="name" class="text-lg font-semibold block">Project Name:</label>
+        <input type="text" id="nameEdit" class="bg-white w-full h-[40px] rounded-xs border border-black mb-4 p-2">
+        <div class="flex">
+          <label id="startDate" for="sDate" class="text-lg font-semibold mr-[92px] md:mr-[153px]">Start Date:</label>
+          <label id="endDate" for="eDate" class="text-lg font-semibold">End Date:</label>
+        </div>
+        <div class="flex gap-4">
+          <input type="date" id="sDateEdit" class="bg-white w-full h-[40px] rounded-xs border border-black mb-[15px] p-2">
+          <input type="date" id="eDateEdit" class="bg-white w-full h-[40px] rounded-xs border border-black mb-[15px] p-2">
+        </div>
+        <label for="description" class="text-lg font-semibold mb-2 text-justify">Description:</label>
+        <textarea type="text" id="descriptionEdit" class="bg-white w-full h-[150px] rounded-md border border-black mb-[15px] p-2"></textarea>
+        <label for="" class="text-lg font-semibold">Technologies:</label>
+        <div class="md:flex mb-[20px]">
+          <div class="mr-[150px]">
+            <div class="mb-[10px] flex items-center">
+              <input type="checkbox" id="icon1Edit" class="checkbox bg-white border border-black rounded-xs mr-[10px]" value="" />
+              <label class="text-md font-semibold">Node Js</label>
+            </div>
+            <div class="flex items-center mb-[10px] md:mb-0">
+              <input type="checkbox" id="icon2Edit" class="checkbox bg-white border border-black rounded-xs mr-[10px]" value="" />
+              <label class="text-md font-semibold">React Js</label>
+            </div>
+          </div>
+          <div>
+            <div class="mb-[10px] flex items-center">
+              <input type="checkbox" id="icon3Edit" class="checkbox bg-white border border-black rounded-xs mr-[10px]" value="" />
+              <label class="text-md font-semibold">Next Js</label>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="icon4Edit" class="checkbox bg-white border border-black rounded-xs mr-[10px]" value="" />
+              <label class="text-md font-semibold">TypeScript</label>
+            </div>
+          </div>
+        </div>
+        <label  class="text-lg font-semibold">Upload Image:</label>
+        <div class="flex items-center justify-center w-full mb-[10px]">
+          <label for="uploadImageEdit" class="flex flex-col items-center justify-center w-full h-[200px] border-2 border-black border-dashed rounded-lg cursor-pointer bg-gray-50">
+            <div id="previewImageEdit" class="mt-2"></div>
+            <input id="uploadImageEdit" type="file" class="hidden" accept="image/*" required/>
+            <div id="image_show_edit"></div>          
+          </label>
+        </div> 
+      </form>
+      <div class="modal-action justify-center">
+        <label for="my_edit_1" class="btn bg-black text-white hover:bg-gray-800 rounded-md py-1 w-44 sm:w-1/2">Save</label>
+        <label for="my_edit_1" class="btn bg-black text-white hover:bg-gray-800 rounded-md py-1 w-44 sm:w-1/2">Close</label>
+      </div>
+    </div>
+  </div>
+
+  <input type="checkbox" id="my_delete_1" class="modal-toggle" />
+  <div class="modal" role="dialog">
+    <div class="modal-box">
+      <div id='deleteCard'>
+        <h3 class="text-xl text-center text-base-content">Are you sure you want to delete this Project ?</h3>
+      </div>
+      <div class="modal-action justify-center">
+        <label for="my_delete_1" class="btn btnModalDelete bg-black text-white hover:bg-gray-800 rounded-md py-1 w-44 sm:w-1/2">Delete</label>
+        <label for="my_delete_1" class="btn bg-black text-white hover:bg-gray-800 rounded-md py-1 w-44 sm:w-1/2">Close</label>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // variabel
+    let currentId = 1;
+    let card = 1;
+    let icons = [
+      {
+        name: "Node Js",
+        url: "https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000"
+      },
+      {
+        name: "React Js",
+        url: "https://img.icons8.com/?size=100&id=25Sjy8fKExYA&format=png&color=000000"
+      },
+      {
+        name: "Next Js",
+        url: "https://img.icons8.com/?size=100&id=MWiBjkuHeMVq&format=png&color=000000"
+      },
+      {
+        name: "Typescript",
+        url: "https://img.icons8.com/?size=100&id=nCj4PvnCO0tZ&format=png&color=000000"
+      }
+    ];
+    let formData = [];
+
+    // function
+    const setLocalStorage = (name, value) => {
+      localStorage.setItem(name, JSON.stringify(value));
+    };
+
+    const getLocalStorage = (name) => {
+      const data = localStorage.getItem(name);
+      return data ? JSON.parse(data) : [];
+    }
+
+    const countDuration = (startDate, endDate) => {
+      const start = new Date(startDate);
+      const end = new Date(endDate);
+
+      if (isNaN(start) || isNaN(end)) {
+        return "Tanggal tidak valid";
+      }
+
+      if (end < start) {
+        return "Tanggal akhir harus setelah tanggal mulai";
+      }
+
+      let years = end.getFullYear() - start.getFullYear();
+      let months = end.getMonth() - start.getMonth();
+      let days = end.getDate() - start.getDate();
+
+      // Koreksi jika hari negatif
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(end.getFullYear(), end.getMonth(), 0); // hari terakhir bulan sebelumnya
+        days += prevMonth.getDate();
+      }
+
+      // Koreksi jika bulan negatif
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      const parts = [];
+      if (years > 0) parts.push(`${years} tahun`);
+      if (months > 0) parts.push(`${months} bulan`);
+      if (days > 0) parts.push(`${days} hari`);
+      if (parts.length === 0) return "0 hari"; // jika sama
+
+      return parts.join(" ");
+    };
+
+    const formatDate = (dateStr) => {
+      const [year, month, day] = dateStr.split("-");
+      return `${day}/${month}/${year}`;
+    };
+
+    const renderCards = () => {
+      let html = "";
+      formData.map((v, i) => {
+      let htmlIcon = "";
+      icons.map((val, idk) => {
+        if (v.icon1 === true && idk === 0) {
+          htmlIcon += `<img src="${icons[0].url}" alt="${icons[0].name}" class="w-[30px] h-[30px]">`
+        };
+        if (v.icon2 === true && idk === 1) {
+          htmlIcon += `<img src="${icons[1].url}" alt="${icons[1].name}" class="w-[30px] h-[30px]">`
+        };
+        if (v.icon3 === true && idk === 2) {
+          htmlIcon += `<img src="${icons[2].url}" alt="${icons[2].name}" class="w-[30px] h-[30px]">`
+        };
+        if (v.icon4 === true && idk === 3) {
+          htmlIcon += `<img src="${icons[3].url}" alt="${icons[3].name}" class="w-[30px] h-[30px]">`
+        };
+      });
+      
+      html += `
+        <div id="${v.cardId}" class="card bg-white shadow-xl p-5 w-full">
+          <figure class="mb-2"><img src="${v.file}" alt="" class="h-[280px] w-full" /></figure>
+          <div class="card-body p-0">
+            <h2 class="font-bold text-lg break-words">${v.name}</h2>
+            <div class="text-gray-500 text-sm mb-2">durasi : ${countDuration(v.startDate,v.endDate)}</div>
+            <label for="my_detail_1" class="detCard link link-primary" data-id="${v.id}">Detail Project</label>
+            <p class="break-words mb-[5px] text-justify">${v.description}</p>
+            <div class="flex gap-4 mb-4 text-gray-700">${htmlIcon}</div>
+            <div class="flex flex-col sm:flex-row gap-2">
+              <label for="my_edit_1" class="btn btnEdit bg-black text-white hover:bg-gray-800 rounded-md py-1 w-full sm:w-1/2" data-id="${v.id}">Edit</label>
+              <label for="my_delete_1" class="btn btnDelete bg-black text-white hover:bg-gray-800 rounded-md py-1 w-full sm:w-1/2" data-id="${v.id}">Delete</label>
+            </div>
+          </div>
+        </div>
+      `
+      });
+      $('#bodyCard').html(html);
+    };
+
+    const clearAll = () => {
+      localStorage.removeItem("formData");
+      formData = [];
+      $('#bodyCard').html('');
+    }
+    
+    // action
+    $(document).ready(function () {
+      formData = getLocalStorage("formData");
+      if (formData.length > 0) {
+        currentId = Math.max(...formData.map(item => item.id)) + 1;
+        card = Math.max(...formData.map(item => item.cardId)) + 1;
+        renderCards();
+      }
+
+      $('#btnSubmit').click(function(e) {
+        e.preventDefault();
+        let name = $('#name').val();
+        let startDate = $('#sDate').val();
+        let endDate = $('#eDate').val();
+        let icon1 = $('#icon1').prop('checked');
+        let icon2 = $('#icon2').prop('checked');
+        let icon3 = $('#icon3').prop('checked');
+        let icon4 = $('#icon4').prop('checked');
+        let description = $('#description').val();
+        let file = $('#uploadImage')[0].files[0];
+        let id = currentId++;
+        let cardId = card++;
+        
+        if (!file) return alert("Image input cannot be empty!");
+
+        const reader = new FileReader();
+        reader.onloadend = function () {
+          const imageUrl = reader.result;
+          formData.push({
+            id: id,
+            name: name,
+            startDate: startDate,
+            endDate: endDate,
+            icon1: icon1,
+            icon2: icon2,
+            icon3: icon3,
+            icon4: icon4,
+            description: description,
+            file: imageUrl,
+            cardId: cardId,
+          });
+          setLocalStorage("formData", formData);
+          renderCards();
+          $('#name').val('');
+          $('#sDate').val('');
+          $('#eDate').val('');
+          $('#icon1, #icon2, #icon3, #icon4').prop('checked', false);
+          $('#description').val('');
+          $('#uploadImage').val('');
+        };
+        reader.readAsDataURL(file);
+      });
+
+      $('#bodyCard').on('click', '.btnEdit' , function () {
+        let dataId = parseInt($(this).attr('data-id'));
+        let data = formData.find(v => v.id === dataId);
+        if (!data) return;
+        
+        $('#nameEdit').val(data.name);
+        $('#sDateEdit').val(data.startDate);
+        $('#eDateEdit').val(data.endDate);
+        $('#eDateEdit').val(data.endDate);
+        $('#descriptionEdit').val(data.description);
+        $('#icon1Edit').prop('checked', data.icon1);
+        $('#icon2Edit').prop('checked', data.icon2);
+        $('#icon3Edit').prop('checked', data.icon3);
+        $('#icon4Edit').prop('checked', data.icon4);
+        $('#previewImageEdit').html(`
+          <img src="${data.file}" alt="gambar lama" class="w-[440px] h-[190px] mt-[-5px]">
+        `);
+      });
+
+      $('#bodyCard').on('click', '.detCard' , function () {
+        let dataId = parseInt($(this).attr('data-id'));
+        let arr = [];
+        let data = formData.find(v => v.id === dataId);
+        let html = '';
+        arr.push(data);
+        if (!data) return;
+        
+        arr.map((v, i) => {
+          let htmlIcon = "";
+          icons.map((val, idk) => {
+            if (v.icon1 === true && idk === 0) {
+              htmlIcon += `
+                <div class="mr-[20px] mb-2">
+                  <div class="flex items-center mb-2">
+                    <img src="${icons[0].url}" class="h-[20px] w-[20px]" alt="">
+                    <label class="text-sm ml-2">${icons[0].name}</label>
+                  </div>
+              `
+            };
+            if (v.icon2 === true && idk === 1) {
+              htmlIcon += `
+                  <div class="flex items-center mb-2 md:mb-0">
+                    <img src="${icons[1].url}" class="h-[20px] w-[20px]" alt="">
+                    <label class="text-sm ml-2">${icons[1].name}</label>
+                  </div>
+                </div>
+              `
+            };
+            if (v.icon3 === true && idk === 2) {
+              htmlIcon += `
+                <div>
+                  <div class="flex items-center mb-2">
+                    <img src="${icons[2].url}" class="h-[20px] w-[20px]" alt="">
+                    <label class="text-sm ml-2">${icons[2].name}</label>
+                  </div>
+              `
+            };
+            if (v.icon4 === true && idk === 3) {
+              htmlIcon += `
+                  <div class="flex items-center">
+                    <img src="${icons[3].url}" class="h-[20px] w-[20px]" alt="">
+                    <label class="text-sm ml-2">${icons[3].name}</label>
+                  </div>
+                </div>
+              `
+            };
+          });
+          html += `
+            <div class="text-center mb-2">
+              <h1 class="capitalize font-bold text-3xl">${v.name}</h1>
+            </div>
+            <hr class="my-3">
+            <div class=""mb-4>
+              <div class="flex gap-2">
+                <div>
+                  <img class="h-[250px] md:h-[200px] w-[170px] md:w-[250px]" src="${v.file}" alt="">
+                </div>
+                <div class="ml-[10px]">
+                  <div class="font-bold mb-2">Duration</div>
+                  <div class="flex mb-2 items-center">
+                    <img src="https://img.icons8.com/?size=100&id=V9bvolWxet7D&format=png&color=000000" class="w-[20px] h-[20px]" alt="">
+                    <div class="text-sm ml-2">${formatDate(v.startDate)} - ${formatDate(v.endDate)}</div>
+                  </div>
+                  <div class="flex mb-2 items-center">
+                    <img src="https://img.icons8.com/?size=100&id=YG3ylG1de6_J&format=png&color=000000" class="w-[20px] h-[20px]" alt="">
+                    <div class="text-sm ml-2">${countDuration(v.startDate,v.endDate)}</div>
+                  </div>
+                  <div class="mb-2 font-bold">Technologies</div>
+                  <div class="flex">${htmlIcon}</div>
+                </div>
+              </div>
+              <div class="text-justify break-words mb-4">${v.description}</div>
+            </div>
+          `;
+        });
+        $('#detCard').html(html);
+      });
+
+      $('#bodyCard').on('click', '.btnDelete', function () {
+        let id = $(this).data('id');
+        $('.btnModalDelete').data('id', id);
+      });
+
+      $('.modal').on('click', '.btnModalDelete', function () {  
+        let id = $(this).data('id');
+        let data = formData.find(v => v.id === id); 
+        if (!data) return;
+
+        $(`#${data.cardId}`).remove();
+        formData = formData.filter(item => item.id !== id);
+        setLocalStorage("formData", formData);
+        renderCards();
+      });
+    });
+  </script>
+</body>
+</html>

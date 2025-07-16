@@ -1,9 +1,23 @@
 {
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
+    "express": "^5.1.0",
+    "hbs": "^4.2.0",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "daisyui": "^5.0.46"
-  }
+    "daisyui": "^5.0.46",
+    "nodemon": "^3.1.10"
+  },
+  "name": "personal-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "dev": "npx tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/output.css --watch"
+  },
+  "type": "module",
+  "author": "adika",
+  "license": "ISC",
+  "description": ""
 }
