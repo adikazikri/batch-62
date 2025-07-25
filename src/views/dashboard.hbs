@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>this homepage</p>
+    <a href="/contact">click here</a>
+    {{#each result.rows}}
+        <p>{{this.name}} - <a href="/portfolio/{{this.id}}">click here</a></p>
+    {{/each}}
+    {{!-- each untuk nampilin data sama kaya map --}}
+</body>
+</html>
